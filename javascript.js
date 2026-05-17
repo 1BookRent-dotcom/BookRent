@@ -443,7 +443,7 @@ $("bookImage")
 // =========================
 
 $("bookForm")
-.addEventListener("submit", e => {
+.addEventListener("submit", async e => {
 
   e.preventDefault();
 
@@ -505,10 +505,32 @@ $("bookForm")
     status:"pending"
 
   };
+  const { data, error } =
+await supabase
+.from("books")
+.insert([
+  {
+    title,
+    author,
+    description,
+    deposit,
+    category,
+    image,
+    owner: currentUser.username,
+    status: "pending"
+  }
+]);
 
-  books.unshift(newBook);
+if(error){
 
-  saveBooks();
+  console.log(error);
+
+  alert("ส่งข้อมูลไม่สำเร็จ");
+
+  return;
+
+}
+ 
 
   $("statusMessage")
   .classList.remove("hidden");
