@@ -882,6 +882,18 @@ class="hidden">
 ========================= -->
 
 <script src="javascript.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
+<script>
+const supabaseUrl = "jmjotxjhzrhgzujbxmbs";
+const supabaseKey = "sb_publishable_J3gayJ5S8zUcc3g-uHN0DA_2ZIzK9pP";
+
+const supabase = window.supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
+
+console.log("Supabase connected!");
+</script>
 </body>
 </html>
