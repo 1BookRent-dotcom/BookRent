@@ -1,0 +1,967 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Kanit',sans-serif;
+  background:#f4f7fb;
+  color:#111827;
+  overflow-x:hidden;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+.loader{
+  position:fixed;
+  inset:0;
+  background:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+}
+
+.spinner{
+  width:70px;
+  height:70px;
+  border:8px solid #dbeafe;
+  border-top:8px solid #143d59;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+.loader p{
+  margin-top:20px;
+  font-size:1.1rem;
+  font-weight:600;
+  color:#143d59;
+}
+
+@keyframes spin{
+
+  100%{
+    transform:rotate(360deg);
+  }
+
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 5%;
+  box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+
+.logo{
+  font-size:1.6rem;
+  font-weight:700;
+  color:#143d59;
+}
+
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:20px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#143d59;
+  font-weight:500;
+  transition:.2s;
+}
+
+.nav-links a:hover{
+  color:#2563eb;
+}
+
+.profile{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+/* =========================
+   GUEST BUTTONS
+========================= */
+
+.guest-buttons{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.login-nav-btn,
+.register-nav-btn{
+  border:none;
+  padding:12px 18px;
+  border-radius:14px;
+  cursor:pointer;
+  font-family:'Kanit',sans-serif;
+  font-weight:600;
+  transition:.2s;
+}
+
+.login-nav-btn{
+  background:#143d59;
+  color:white;
+}
+
+.register-nav-btn{
+  background:#e5e7eb;
+}
+
+.login-nav-btn:hover,
+.register-nav-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* =========================
+   USER PROFILE
+========================= */
+
+.user-profile{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.user-profile img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #dbeafe;
+}
+
+.profile-info{
+  display:flex;
+  flex-direction:column;
+}
+
+#profileName{
+  font-weight:700;
+  color:#143d59;
+}
+
+#profileRole{
+  font-size:.9rem;
+  color:#6b7280;
+}
+
+.logout-btn{
+  border:none;
+  padding:10px 14px;
+  border-radius:12px;
+  background:#ef4444;
+  color:white;
+  font-family:'Kanit',sans-serif;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:80vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:50px;
+  background:
+  linear-gradient(
+    rgba(20,61,89,.75),
+    rgba(20,61,89,.75)
+  ),
+  url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1600&auto=format&fit=crop");
+
+  background-size:cover;
+  background-position:center;
+  color:white;
+}
+
+.hero-content{
+  max-width:800px;
+}
+
+.hero h1{
+  font-size:4rem;
+  line-height:1.2;
+}
+
+.hero p{
+  margin-top:20px;
+  font-size:1.2rem;
+  line-height:1.8;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-section{
+  padding:40px 5%;
+}
+
+.search-box{
+  max-width:700px;
+  margin:auto;
+  display:flex;
+  gap:15px;
+}
+
+.search-box input{
+  flex:1;
+  border:none;
+  padding:18px;
+  border-radius:18px;
+  background:white;
+  box-shadow:0 5px 18px rgba(0,0,0,0.06);
+  font-family:'Kanit',sans-serif;
+}
+
+.search-box button{
+  border:none;
+  padding:18px 24px;
+  border-radius:18px;
+  background:#143d59;
+  color:white;
+  font-family:'Kanit',sans-serif;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* =========================
+   CATEGORY
+========================= */
+
+.categories{
+  padding:20px 5% 50px;
+}
+
+.categories h2{
+  margin-bottom:20px;
+  color:#143d59;
+}
+
+.category-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.category-btn{
+  border:none;
+  padding:12px 20px;
+  border-radius:30px;
+  background:white;
+  cursor:pointer;
+  transition:.2s;
+  font-family:'Kanit',sans-serif;
+  font-weight:500;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+.category-btn:hover{
+  transform:translateY(-2px);
+}
+
+.category-btn.active{
+  background:#143d59;
+  color:white;
+}
+
+/* =========================
+   BOOK GRID
+========================= */
+
+.book-grid{
+  padding:0 5% 70px;
+  column-count:4;
+  column-gap:20px;
+}
+
+.book-card{
+  display:inline-block;
+  width:100%;
+  background:white;
+  margin-bottom:20px;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  break-inside:avoid;
+  transition:.25s;
+}
+
+.book-card:hover{
+  transform:translateY(-5px);
+}
+
+.book-card img{
+  width:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.book-content{
+  padding:20px;
+}
+
+.book-content h3{
+  margin-bottom:10px;
+  color:#143d59;
+}
+
+.book-content p{
+  margin-top:8px;
+  color:#444;
+}
+
+.rent-btn{
+  width:100%;
+  margin-top:18px;
+  border:none;
+  padding:15px;
+  border-radius:14px;
+  background:#143d59;
+  color:white;
+  font-family:'Kanit',sans-serif;
+  cursor:pointer;
+  font-weight:600;
+  transition:.2s;
+}
+
+.rent-btn:hover{
+  background:#2563eb;
+}
+
+/* =========================
+   LISTING
+========================= */
+
+.listing-section{
+  padding:70px 5%;
+}
+
+.listing-box{
+  max-width:800px;
+  margin:auto;
+  background:white;
+  padding:35px;
+  border-radius:30px;
+  box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+.listing-box h2{
+  margin-bottom:25px;
+  color:#143d59;
+}
+
+.listing-box form{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.listing-box input,
+.listing-box textarea{
+  width:100%;
+  border:none;
+  padding:16px;
+  border-radius:16px;
+  background:#f3f6fb;
+  font-family:'Kanit',sans-serif;
+}
+
+.listing-box textarea{
+  min-height:120px;
+  resize:none;
+}
+
+.multi-category{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.multi-category label{
+  background:#eff6ff;
+  padding:12px 16px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.multi-category label:hover{
+  background:#dbeafe;
+}
+
+.preview{
+  width:100%;
+  border-radius:18px;
+}
+
+.submit-btn{
+  border:none;
+  padding:18px;
+  border-radius:16px;
+  background:#2563eb;
+  color:white;
+  font-family:'Kanit',sans-serif;
+  cursor:pointer;
+  font-size:1rem;
+  font-weight:600;
+}
+
+.success-box{
+  margin-top:20px;
+  background:#dcfce7;
+  color:#166534;
+  padding:18px;
+  border-radius:16px;
+  font-weight:600;
+}
+
+/* =========================
+   HISTORY
+========================= */
+
+.history-section{
+  padding:80px 5%;
+  background:#f8fbff;
+}
+
+.history-section h2{
+  text-align:center;
+  margin-bottom:40px;
+  color:#143d59;
+}
+
+.history-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fill,minmax(250px,1fr));
+  gap:25px;
+}
+
+.history-card{
+  background:white;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,0.07);
+}
+
+.history-card img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+}
+
+.history-content{
+  padding:20px;
+}
+
+.history-content h3{
+  margin-bottom:12px;
+  color:#143d59;
+}
+
+.history-content p{
+  margin-top:8px;
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+.reviews{
+  padding:80px 5%;
+}
+
+.reviews-container{
+  max-width:900px;
+  margin:auto;
+}
+
+.reviews h2{
+  text-align:center;
+  margin-bottom:40px;
+  color:#143d59;
+}
+
+.review-form-box{
+  background:white;
+  padding:30px;
+  border-radius:26px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.07);
+  margin-bottom:40px;
+}
+
+.review-form-box textarea{
+  width:100%;
+  min-height:150px;
+  border:none;
+  padding:20px;
+  border-radius:18px;
+  background:#f3f6fb;
+  resize:none;
+  font-family:'Kanit',sans-serif;
+}
+
+.star-select{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.star-select span{
+  font-size:2rem;
+  cursor:pointer;
+  color:#cbd5e1;
+  transition:.2s;
+}
+
+.star-select span.active{
+  color:#facc15;
+  transform:scale(1.1);
+}
+
+#submitReviewBtn{
+  width:100%;
+  margin-top:25px;
+  border:none;
+  padding:16px;
+  border-radius:16px;
+  background:#143d59;
+  color:white;
+  font-family:'Kanit',sans-serif;
+  cursor:pointer;
+  font-size:1rem;
+  font-weight:600;
+}
+
+.review-list{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.review-card{
+  background:white;
+  padding:25px;
+  border-radius:24px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
+
+.review-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.review-user{
+  font-weight:700;
+  color:#143d59;
+}
+
+.review-stars{
+  color:#facc15;
+}
+
+.review-text{
+  line-height:1.8;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  padding:80px 5%;
+  text-align:center;
+}
+
+.contact h2{
+  margin-bottom:20px;
+  color:#143d59;
+}
+
+.contact p{
+  margin-top:10px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.login-modal,
+.register-modal,
+.rent-modal,
+.payment-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  padding:20px;
+}
+
+.login-box,
+.register-box,
+.payment-box{
+  width:100%;
+  max-width:500px;
+  background:white;
+  border-radius:28px;
+  padding:35px;
+  position:relative;
+}
+
+.login-box h2,
+.register-box h2{
+  margin-bottom:20px;
+  color:#143d59;
+}
+
+.login-box input,
+.register-box input{
+  width:100%;
+  margin-top:15px;
+  border:none;
+  padding:16px;
+  border-radius:16px;
+  background:#f3f6fb;
+  font-family:'Kanit',sans-serif;
+}
+
+.register-btn{
+  width:100%;
+  margin-top:20px;
+  border:none;
+  padding:16px;
+  border-radius:16px;
+  background:#143d59;
+  color:white;
+  font-family:'Kanit',sans-serif;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.close-login,
+.close-register,
+.close-rent,
+.close-payment{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:1.5rem;
+  cursor:pointer;
+}
+
+/* =========================
+   RENT MODAL
+========================= */
+
+.rent-box{
+  width:100%;
+  max-width:1100px;
+  background:white;
+  border-radius:30px;
+  padding:35px;
+  position:relative;
+  max-height:95vh;
+  overflow-y:auto;
+}
+
+.rent-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.rent-left img{
+  width:100%;
+  border-radius:24px;
+}
+
+.rent-right h2{
+  margin-bottom:10px;
+  color:#143d59;
+}
+
+.rent-right p{
+  margin-top:10px;
+}
+
+.shipping-section{
+  margin-top:30px;
+}
+
+.shipping-section h3{
+  margin-bottom:15px;
+}
+
+.shipping-section input,
+.shipping-section textarea,
+.shipping-section select{
+  width:100%;
+  margin-top:12px;
+  border:none;
+  padding:16px;
+  border-radius:16px;
+  background:#f3f6fb;
+  font-family:'Kanit',sans-serif;
+}
+
+.shipping-section textarea{
+  min-height:120px;
+  resize:none;
+}
+
+.confirm-rent-btn{
+  width:100%;
+  margin-top:25px;
+  border:none;
+  padding:18px;
+  border-radius:16px;
+  background:#10b981;
+  color:white;
+  font-family:'Kanit',sans-serif;
+  cursor:pointer;
+  font-weight:700;
+  font-size:1rem;
+}
+
+/* =========================
+   PAYMENT
+========================= */
+
+.payment-box{
+  text-align:center;
+}
+
+.payment-box h2{
+  color:#143d59;
+}
+
+.payment-box p{
+  margin-top:10px;
+}
+
+.payment-box img{
+  width:250px;
+  margin-top:25px;
+  border-radius:20px;
+}
+
+.timer-box{
+  margin-top:25px;
+  font-size:2rem;
+  font-weight:700;
+  color:#ef4444;
+}
+
+.payment-upload{
+  margin-top:25px;
+  text-align:left;
+}
+
+.payment-upload label{
+  display:block;
+  margin-bottom:10px;
+  font-weight:600;
+}
+
+.payment-upload input{
+  width:100%;
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+#adminDashboard{
+  min-height:100vh;
+  background:#111827;
+  color:white;
+  padding:50px 5%;
+}
+
+.admin-header{
+  margin-bottom:40px;
+}
+
+.admin-header h1{
+  font-size:2.5rem;
+}
+
+.admin-books{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fill,minmax(260px,1fr));
+  gap:30px;
+}
+
+.admin-card{
+  background:#1f2937;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.admin-card img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+}
+
+.admin-content{
+  padding:20px;
+}
+
+.admin-content h3{
+  margin-bottom:12px;
+}
+
+.admin-content p{
+  margin-top:8px;
+  color:#d1d5db;
+}
+
+.admin-actions{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.approve-btn,
+.reject-btn{
+  flex:1;
+  border:none;
+  padding:14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-family:'Kanit',sans-serif;
+  font-weight:600;
+}
+
+.approve-btn{
+  background:#10b981;
+  color:white;
+}
+
+.reject-btn{
+  background:#ef4444;
+  color:white;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty-box{
+  width:100%;
+  background:white;
+  padding:50px;
+  border-radius:24px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* =========================
+   UTIL
+========================= */
+
+.hidden{
+  display:none !important;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1200px){
+
+  .book-grid{
+    column-count:3;
+  }
+
+}
+
+@media(max-width:900px){
+
+  .book-grid{
+    column-count:2;
+  }
+
+  .rent-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:3rem;
+  }
+
+}
+
+@media(max-width:700px){
+
+  .navbar{
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .book-grid{
+    column-count:1;
+  }
+
+  .hero h1{
+    font-size:2.2rem;
+  }
+
+  .hero p{
+    font-size:1rem;
+  }
+
+  .search-box{
+    flex-direction:column;
+  }
+
+  .user-profile{
+    flex-direction:column;
+  }
+
+}
